@@ -172,8 +172,6 @@ BOOL isSelf() {
 %hook UIViewController
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     if ([NSStringFromClass([viewControllerToPresent class]) isEqualToString:@"HelperVC"]) {
-        // show a toast
-        [[%c(GOOHUDManagerInternal) sharedInstance] showMessageMainThread:[%c(YTHUDMessage) messageWithText:@"Bypassing Popup"]];
         // look for UIWindows of the sus type and hide them
         NSArray<UIWindow *> *windows = [UIApplication sharedApplication].windows;
         for (UIWindow *window in windows) {
