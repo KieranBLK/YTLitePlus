@@ -3,9 +3,7 @@ export SDK_PATH = $(THEOS)/sdks/iPhoneOS17.5.sdk/
 export SYSROOT = $(SDK_PATH)
 export ARCHS = arm64
 
-export libcolorpicker_ARCHS = arm64
 export libFLEX_ARCHS = arm64
-export libcolorpicker_LDFLAGS = -F$(TARGET_PRIVATE_FRAMEWORK_PATH) -install_name @rpath/libcolorpicker.dylib
 export ADDITIONAL_CFLAGS = -I$(THEOS_PROJECT_DIR)/Tweaks/RemoteLog -I$(THEOS_PROJECT_DIR)/Tweaks # Allow YouTubeHeader to be accessible using #include <...>
 
 ifneq ($(JAILBROKEN),1)
@@ -23,7 +21,6 @@ BUNDLE_ID = com.google.ios.youtube
 YTLitePlus_FILES = YTLitePlus.xm $(shell find Source -name '*.xm' -o -name '*.x' -o -name '*.m')
 YTLitePlus_FRAMEWORKS = UIKit Security
 YTLitePlus_INJECT_DYLIBS = Tweaks/YTLite/var/jb/Library/MobileSubstrate/DynamicLibraries/YTLite.dylib .theos/obj/libFLEX.dylib .theos/obj/iSponsorBlock.dylib .theos/obj/YTUHD.dylib .theos/obj/YouPiP.dylib .theos/obj/YouTubeDislikesReturn.dylib .theos/obj/YTABConfig.dylib .theos/obj/DontEatMyContent.dylib .theos/obj/YTHoldForSpeed.dylib .theos/obj/YTVideoOverlay.dylib .theos/obj/YouLoop.dylib .theos/obj/YouMute.dylib .theos/obj/YouQuality.dylib .theos/obj/YouSpeed.dylib .theos/obj/YouTimeStamp.dylib .theos/obj/YouGroupSettings.dylib
-YTLitePlus_EMBED_LIBRARIES = $(THEOS_OBJ_DIR)/libcolorpicker.dylib
 YTLitePlus_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-but-set-variable -DTWEAK_VERSION=\"$(PACKAGE_VERSION)\"
 YTLitePlus_EMBED_BUNDLES = $(wildcard Bundles/*.bundle)
 YTLitePlus_IPA = ./tmp/Payload/YouTube.app
