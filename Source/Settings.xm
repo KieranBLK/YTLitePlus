@@ -77,11 +77,9 @@ static const NSInteger YTLitePlusSection = 788;
 %end
 
 %hook YTSettingsSectionController
-
 - (void)setSelectedItem:(NSUInteger)selectedItem {
     if (selectedItem != NSNotFound) %orig;
 }
-
 %end
 
 %hook YTSettingsSectionItemManager
