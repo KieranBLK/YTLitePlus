@@ -99,8 +99,8 @@ static const NSInteger YTLitePlusSection = 788;
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/YTLitePlus/YTLitePlus/releases/latest"]];
         }];
-    [sectionItems addObject:main];
 */
+    [sectionItems addObject:main];
 
 # pragma mark - Copy and Paste Settings
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
