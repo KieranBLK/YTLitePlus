@@ -48,7 +48,7 @@ extern NSBundle *YTLitePlusBundle();
 
 // Add both YTLite and YTLitePlus to YouGroupSettings
 static const NSInteger YTLitePlusSection = 788;
-static const NSInteger YTLiteSection = 789;
+// static const NSInteger YTLiteSection = 789;
 %hook YTSettingsGroupData
 + (NSMutableArray <NSNumber *> *)tweaks {
     NSMutableArray <NSNumber *> *originalTweaks = %orig;
@@ -56,7 +56,7 @@ static const NSInteger YTLiteSection = 789;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [originalTweaks addObject:@(YTLitePlusSection)];
-        [originalTweaks addObject:@(YTLiteSection)];
+       // [originalTweaks addObject:@(YTLiteSection)];
     });
 
     return originalTweaks;
@@ -92,7 +92,7 @@ static const NSInteger YTLiteSection = 789;
     Class YTSettingsSectionItemClass = %c(YTSettingsSectionItem);
     YTSettingsViewController *settingsViewController = [self valueForKey:@"_settingsViewControllerDelegate"];
 
-    // Add item for going to the YTLitePlus GitHub page
+    --// Add item for going to the YTLitePlus GitHub page
     YTSettingsSectionItem *main = [%c(YTSettingsSectionItem)
         itemWithTitle:[NSString stringWithFormat:LOC(@"VERSION"), @(OS_STRINGIFY(TWEAK_VERSION))]
         titleDescription:LOC(@"VERSION_CHECK")
@@ -101,7 +101,7 @@ static const NSInteger YTLiteSection = 789;
         selectBlock:^BOOL (YTSettingsCell *cell, NSUInteger arg1) {
             return [%c(YTUIUtils) openURL:[NSURL URLWithString:@"https://github.com/YTLitePlus/YTLitePlus/releases/latest"]];
         }];
-    [sectionItems addObject:main];
+    [sectionItems addObject:main];//
 
 # pragma mark - Copy and Paste Settings
     YTSettingsSectionItem *copySettings = [%c(YTSettingsSectionItem)
