@@ -126,10 +126,6 @@ typedef NS_ENUM(NSUInteger, GestureSection) {
 @property (nonatomic, assign, readwrite) BOOL enableSnapToChapter;
 @end
 
-// HelperVC - @bhackel
-@interface HelperVC : UIViewController
-@end 
-
 // Hide YouTube Plus incompatibility warning popup - @bhackel
 @interface HelperVC : UIViewController
 @end
