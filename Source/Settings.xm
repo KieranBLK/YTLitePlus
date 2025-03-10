@@ -48,7 +48,7 @@ extern NSBundle *YTLitePlusBundle();
 
 // Add both YTLite and YTLitePlus to YouGroupSettings
 static const NSInteger YTLitePlusSection = 788;
-static const NSInteger YTLiteSection = 789;
+// static const NSInteger YTLiteSection = 789;
 %hook YTSettingsGroupData
 + (NSMutableArray <NSNumber *> *)tweaks {
     NSMutableArray <NSNumber *> *originalTweaks = %orig;
@@ -56,7 +56,7 @@ static const NSInteger YTLiteSection = 789;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [originalTweaks addObject:@(YTLitePlusSection)];
-        [originalTweaks addObject:@(YTLiteSection)];
+       // [originalTweaks addObject:@(YTLiteSection)];
     });
 
     return originalTweaks;
